@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://uthot.com"),
+  metadataBase: new URL("https://uthot.hdtl.in"),
   title: "uthot — seven gates for founders",
   description:
     "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "uthot — seven gates for founders",
     description:
       "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
-    url: "https://uthot.com",
+    url: "https://uthot.hdtl.in",
     siteName: "uthot",
     images: [
       {
