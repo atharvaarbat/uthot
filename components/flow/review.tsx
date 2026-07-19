@@ -100,7 +100,7 @@ export default function Review() {
             day: 'numeric',
         })
         const lines: string[] = [
-            '# noai — the record',
+            '# uthot — the record',
             '',
             `_${today} · ${answeredCount} of ${TOTAL_QUESTIONS} answered_`,
             '',
@@ -120,7 +120,7 @@ export default function Review() {
         const url = URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.href = url
-        a.download = 'noai-record.md'
+        a.download = 'uthot-record.md'
         a.click()
         URL.revokeObjectURL(url)
     }
@@ -140,11 +140,12 @@ export default function Review() {
             </div>
 
             <header className="fixed inset-x-0 top-0 z-30 flex items-center justify-between bg-background/80 px-6 py-4 backdrop-blur-sm">
-                <Link
-                    href="/"
-                    className="font-mono text-xs tracking-[0.3em] text-muted-foreground uppercase transition-colors hover:text-foreground"
-                >
-                    noai
+                
+                <Link href="/">
+                <div className="flex items-center gap-2">
+                    <img src={'/logo.svg'} className='h-8 w-10' />
+                    <img src={'/uthot.svg'} className='h-6 ' />
+                </div>
                 </Link>
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" size="sm" onClick={download} className="gap-2 text-muted-foreground">

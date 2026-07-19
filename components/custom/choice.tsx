@@ -49,7 +49,7 @@ const CustomChoice = ({ label, instruction, options, whyPrompt, value, onChange,
                 <FormattedText text={label} />
             </FieldLabel>
 
-            <div role="radiogroup" className="flex flex-col border-t border-border">
+            <div role="radiogroup" className="flex flex-col">
                 {options.map((option, i) => {
                     const selected = option === choice
                     return (
@@ -59,7 +59,7 @@ const CustomChoice = ({ label, instruction, options, whyPrompt, value, onChange,
                             role="radio"
                             aria-checked={selected}
                             onClick={() => onChange?.({ choice: option, why })}
-                            className="group flex cursor-pointer items-baseline gap-4 border-b border-border py-3.5 text-left outline-none transition-colors duration-(--dur-quick) hover:bg-muted/40 focus-visible:bg-muted/40"
+                            className="group px-4 rounded-3xl flex cursor-pointer items-center gap-4  py-3.5 text-left outline-none transition-colors duration-(--dur-quick) hover:bg-muted/40 focus-visible:bg-muted/40"
                         >
                             <span className="w-4 shrink-0 font-mono text-xs text-muted-foreground/60">
                                 {LETTERS[i]}.
@@ -92,7 +92,7 @@ const CustomChoice = ({ label, instruction, options, whyPrompt, value, onChange,
                     className="grid transition-[grid-template-rows] duration-(--dur-gentle) ease-(--ease-out-quart)"
                     style={{ gridTemplateRows: choice ? "1fr" : "0fr" }}
                 >
-                    <div className="overflow-hidden">
+                    <div className="">
                         <Textarea
                             placeholder={whyPrompt}
                             className="h-24"

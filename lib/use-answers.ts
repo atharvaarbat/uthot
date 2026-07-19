@@ -3,9 +3,9 @@
 import { useCallback, useSyncExternalStore } from 'react'
 import type { AnswerMap, AnswerValue } from './questions'
 
-const ANSWERS_KEY = 'noai:answers:v1'
-const CURSOR_KEY = 'noai:cursor:v1'
-const ANSWERS_EVENT = 'noai:answers-changed'
+const ANSWERS_KEY = 'uthot:answers:v1'
+const CURSOR_KEY = 'uthot:cursor:v1'
+const ANSWERS_EVENT = 'uthot:answers-changed'
 
 export function readCursor(): number {
     if (typeof window === 'undefined') return 0

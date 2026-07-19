@@ -56,18 +56,18 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #FF5C00;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted: oklch(90.123% 0.02804 81.439);
+  --muted-foreground: oklch(57.591% 0.03476 93.119);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --input: oklch(90.123% 0.02804 81.439);
+  --ring: oklch(89.697% 0.03708 80.59);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -82,13 +82,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
+  --background: #F5F4E9;
   --foreground: oklch(0.145 0 0);
 
   /* ─── design scheme (edit me) ─────────────────────────────
      The single warm accent used across the question flow,
      plus the motion + layout scheme. Change these to retheme. */
-  --flow-accent: oklch(0.666 0.157 58.3);
+  --flow-accent: #FF5C00;
   --flow-accent-soft: oklch(0.666 0.157 58.3 / 14%);
   --flow-measure: 44rem;                       /* reading width of the question column */
   --gate-display: clamp(3.25rem, 8.5vw, 6.5rem); /* section gate title size */
@@ -104,23 +104,23 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #15110E;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: #FF5C00;
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted: oklch(22.992% 0.00843 59.136);
+  --muted-foreground: oklch(60.847% 0.02676 67.234);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --input: oklch(100% 0.00011 271.152 / 0.15);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
@@ -136,7 +136,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  --flow-accent: oklch(0.795 0.162 75);
+  --flow-accent: #FF5C00;
   --flow-accent-soft: oklch(0.795 0.162 75 / 16%);
 }
 

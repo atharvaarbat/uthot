@@ -185,11 +185,11 @@ export default function Flow() {
             <header
                 className={`fixed inset-x-0 top-0 z-30 flex items-center justify-between px-6 py-5 transition-opacity duration-(--dur-gentle) ${chromeDim}`}
             >
-                <Link
-                    href="/"
-                    className="font-mono text-xs tracking-[0.3em] text-muted-foreground uppercase transition-colors hover:text-foreground"
-                >
-                    noai
+                <Link href="/">
+                <div className="flex items-center gap-2">
+                    <img src={'/logo.svg'} className='h-8 w-10' />
+                    <img src={'/uthot.svg'} className='h-6 ' />
+                </div>
                 </Link>
                 <div className="flex items-center gap-4">
                     {step.kind === 'question' && (
@@ -260,11 +260,11 @@ export default function Flow() {
 
                     {step.kind === 'question' && (
                         <div className="flex flex-col gap-8">
-                            <p data-animate className="font-mono text-xs tracking-[0.3em] text-muted-foreground/70 uppercase">
+                            {/* <p data-animate className="font-mono text-xs tracking-[0.3em] text-muted-foreground/70 uppercase">
                                 {String(section.number).padStart(2, '0')} · {section.title}
                                 <span className="mx-3 text-border">—</span>
                                 {step.question + 1} of {section.questions.length}
-                            </p>
+                            </p> */}
 
                             <QuestionView
                                 question={section.questions[step.question]}

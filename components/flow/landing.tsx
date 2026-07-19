@@ -45,9 +45,10 @@ export default function Landing() {
     return (
         <div ref={rootRef} className="relative flex min-h-dvh flex-col">
             <header className="landing-fade flex items-center justify-between px-6 py-5 opacity-0">
-                <span className="font-mono text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                    noai
-                </span>
+                <div className="flex items-center gap-2">
+                    <img src={'/logo.svg'} className='h-8 w-10' />
+                    <img src={'/uthot.svg'} className='h-6 ' />
+                </div>
                 <ThemeToggle />
             </header>
 

@@ -21,9 +21,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "noai — seven gates for founders",
+  title: "uthot — seven gates for founders",
   description:
     "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
+    icons: {
+      icon: "/logo.svg",
+      shortcut: "/logo.svg",
+      apple: "/logo.svg",
+    }
 };
 
 export default function RootLayout({
