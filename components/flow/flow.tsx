@@ -47,7 +47,8 @@ export default function Flow() {
     }, [])
 
     const step = cursor === null ? null : STEPS[cursor]
-    const section = step ? SECTIONS[step.section] : null
+    const sectionIndex = step && step.kind !== 'shlok' ? step.section : null
+    const section = sectionIndex !== null ? SECTIONS[sectionIndex] : null
 
     const leave = useCallback((dirn: 1 | -1, onDone: () => void) => {
         direction.current = dirn
@@ -127,7 +128,7 @@ export default function Flow() {
                         {
                             opacity: 1,
                             y: 0,
-                            duration: dur(kind === 'underneath' ? 0.85 : 0.55),
+                            duration: dur(kind === 'underneath' || kind === 'shlok' ? 0.85 : 0.55),
                             stagger: dur(0.08),
                             clearProps: 'opacity,transform',
                         },
@@ -161,7 +162,7 @@ export default function Flow() {
         return () => window.removeEventListener('keydown', onKey)
     }, [cursor, go])
 
-    if (!hydrated || !loaded || cursor === null || !step || !section) {
+    if (!hydrated || !loaded || cursor === null || !step || (step.kind !== 'shlok' && !section)) {
         return <div className="min-h-dvh" />
     }
 
@@ -194,7 +195,7 @@ export default function Flow() {
                 <div className="flex items-center gap-4">
                     {step.kind === 'question' && (
                         <span className="font-mono text-xs text-muted-foreground tabular-nums">
-                            Q {String(ordinals[cursor]).padStart(2, '0')} / {TOTAL_QUESTIONS}
+                            {String(ordinals[cursor]).padStart(2, '0')} / {TOTAL_QUESTIONS}
                         </span>
                     )}
                     <ThemeToggle />
@@ -207,7 +208,7 @@ export default function Flow() {
                 className={`fixed top-1/2 left-6 z-30 hidden -translate-y-1/2 flex-col gap-3 transition-opacity duration-(--dur-gentle) lg:flex ${chromeDim}`}
             >
                 {SECTIONS.map((s, i) => {
-                    const active = i === step.section
+                    const active = i === sectionIndex
                     return (
                         <button
                             key={s.id}
@@ -230,13 +231,57 @@ export default function Flow() {
             {/* the stage */}
             <main className="flex min-h-dvh items-center justify-center px-6 py-28">
                 <div ref={stageRef} className="w-full max-w-(--flow-measure) opacity-0">
-                    {step.kind === 'gate' && (
-                        <div className="flex justify-center">
-                            <SectionGate section={section} onEnter={() => go(1)} />
+                    {step.kind === 'shlok' && (
+                        <div className="flex flex-col items-center gap-8 text-center">
+                            <p
+                                data-animate
+                                className="font-mono text-xs tracking-[0.35em] text-muted-foreground/70 uppercase"
+                            >
+                                Stage 00 — before the gates
+                            </p>
+
+                            <p className="max-w-2xl font-serif text-2xl leading-relaxed sm:text-3xl" data-animate>
+                                कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।
+                                <br />
+                                मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥ ४७ ॥
+                            </p>
+
+                            <p data-animate className="max-w-xl font-mono text-xs leading-relaxed text-muted-foreground/60">
+                                karmaṇy-evādhikāras te mā phaleṣu kadācana
+                                <br />
+                                mā karma-phala-hetur bhūr mā te saṅgo &apos;stv akarmaṇi
+                            </p>
+
+                            <div data-animate className="h-px w-24 bg-flow-accent" />
+
+                            <p data-animate className="max-w-xl font-serif text-xl leading-relaxed text-muted-foreground italic sm:text-2xl">
+                                You have a right to the work — never to the fruit of it.
+                                Let the seven gates be the work. Don&apos;t enter them chasing an outcome,
+                                and don&apos;t stay outside them waiting to feel ready.
+                            </p>
+
+                            <p data-animate className="font-mono text-xs text-muted-foreground/50">
+                                — Bhagavad Gita, Chapter 2, Verse 47
+                            </p>
+
+                            <button
+                                type="button"
+                                data-animate
+                                onClick={() => go(1)}
+                                className="mt-8 cursor-pointer font-mono text-xs text-muted-foreground/60 underline decoration-border underline-offset-4 outline-none transition-colors duration-(--dur-quick) hover:text-foreground focus-visible:text-foreground"
+                            >
+                                carry it in, then continue <kbd className="ml-1 rounded border border-border px-1.5 py-0.5 font-mono text-[10px]">↵</kbd>
+                            </button>
                         </div>
                     )}
 
-                    {step.kind === 'underneath' && section.underneath && (
+                    {step.kind === 'gate' && (
+                        <div className="flex justify-center">
+                            <SectionGate section={section!} onEnter={() => go(1)} />
+                        </div>
+                    )}
+
+                    {step.kind === 'underneath' && section!.underneath && (
                         <div className="flex flex-col items-center gap-8 text-center">
                             <p
                                 data-animate
@@ -245,7 +290,7 @@ export default function Flow() {
                                 The real question underneath
                             </p>
                             <p data-animate className="max-w-2xl font-serif text-3xl leading-snug italic sm:text-4xl">
-                                {section.underneath}
+                                {section!.underneath}
                             </p>
                             <button
                                 type="button"
@@ -267,9 +312,9 @@ export default function Flow() {
                             </p> */}
 
                             <QuestionView
-                                question={section.questions[step.question]}
-                                value={answers[section.questions[step.question].id]}
-                                onChange={(v) => setAnswer(section.questions[step.question].id, v)}
+                                question={section!.questions[step.question]}
+                                value={answers[section!.questions[step.question].id]}
+                                onChange={(v) => setAnswer(section!.questions[step.question].id, v)}
                             />
 
                             <div data-animate className="flex items-center justify-between pt-2">

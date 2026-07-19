@@ -410,15 +410,19 @@ export const TOTAL_QUESTIONS = SECTIONS.reduce(
 /* ── the linear path through the flow ─────────────────────────── */
 
 export type Step =
+    | { kind: "shlok" }
     | { kind: "gate"; section: number }
     | { kind: "question"; section: number; question: number }
     | { kind: "underneath"; section: number }
 
-export const STEPS: Step[] = SECTIONS.flatMap((section, s): Step[] => [
-    { kind: "gate", section: s },
-    ...section.questions.map((_, q): Step => ({ kind: "question", section: s, question: q })),
-    ...(section.underneath ? [{ kind: "underneath", section: s } as Step] : []),
-])
+export const STEPS: Step[] = [
+    { kind: "shlok" },
+    ...SECTIONS.flatMap((section, s): Step[] => [
+        { kind: "gate", section: s },
+        ...section.questions.map((_, q): Step => ({ kind: "question", section: s, question: q })),
+        ...(section.underneath ? [{ kind: "underneath", section: s } as Step] : []),
+    ]),
+]
 
 /* ── answer shapes, keyed by question id ──────────────────────── */
 
