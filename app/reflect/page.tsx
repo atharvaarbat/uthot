@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       "Work through thirty-five questions designed to clarify your thinking. A thinking instrument for founders.",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "The gates — uthot",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "The gates — uthot",
     description:
       "Work through thirty-five questions designed to clarify your thinking. A thinking instrument for founders.",
-    images: ["/opengraph-image"],
+    images: ["/og.png"],
   },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       "Review your answers and insights. A thinking instrument for founders.",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "The record — uthot",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "The record — uthot",
     description:
       "Review your answers and insights. A thinking instrument for founders.",
-    images: ["/opengraph-image"],
+    images: ["/og.png"],
   },
 };
 

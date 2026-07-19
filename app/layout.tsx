@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "uthot",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "uthot — seven gates for founders",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "uthot — seven gates for founders",
     description:
       "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
-    images: ["/opengraph-image"],
+    images: ["/og.png"],
   },
   icons: {
     icon: "/logo.svg",
