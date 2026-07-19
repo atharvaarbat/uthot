@@ -47,6 +47,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-flow-accent: var(--flow-accent);
+  --color-flow-accent-soft: var(--flow-accent-soft);
 }
 
 :root {
@@ -82,6 +84,23 @@
   --sidebar-ring: oklch(0.708 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+
+  /* ─── design scheme (edit me) ─────────────────────────────
+     The single warm accent used across the question flow,
+     plus the motion + layout scheme. Change these to retheme. */
+  --flow-accent: oklch(0.666 0.157 58.3);
+  --flow-accent-soft: oklch(0.666 0.157 58.3 / 14%);
+  --flow-measure: 44rem;                       /* reading width of the question column */
+  --gate-display: clamp(3.25rem, 8.5vw, 6.5rem); /* section gate title size */
+
+  /* motion scheme */
+  --dur-micro: 120ms;
+  --dur-quick: 180ms;
+  --dur-standard: 240ms;
+  --dur-gentle: 500ms;
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .dark {
@@ -116,6 +135,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --flow-accent: oklch(0.795 0.162 75);
+  --flow-accent-soft: oklch(0.795 0.162 75 / 16%);
 }
 
 @layer base {
@@ -127,6 +149,45 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+::selection {
+  background: var(--flow-accent-soft);
+}
+
+/* faint paper grain over everything — atmosphere, not decoration */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark body::after {
+  opacity: 0.045;
+}
+
+/* native date input: quiet, ink-on-paper */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

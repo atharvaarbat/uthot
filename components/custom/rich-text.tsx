@@ -11,7 +11,7 @@ interface FormattedTextProps {
 const DELIMITERS: { token: string; className: string }[] = [
     { token: "#$", className: "text-amber-400" }, // #$ quoted #$
     { token: "*", className: "font-bold" },        // *bold*
-    { token: "_", className: "font-serif" },           // _italic_
+    { token: "_", className: "font-serif italic" },    // _serif italic_
 ];
  
 export function FormattedText({ text }: FormattedTextProps) {
