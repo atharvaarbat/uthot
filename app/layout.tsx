@@ -21,14 +21,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://uthot.com"),
   title: "uthot — seven gates for founders",
   description:
     "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
-    icons: {
-      icon: "/logo.svg",
-      shortcut: "/logo.svg",
-      apple: "/logo.svg",
-    }
+  openGraph: {
+    title: "uthot — seven gates for founders",
+    description:
+      "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
+    url: "https://uthot.com",
+    siteName: "uthot",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "uthot — seven gates for founders",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "uthot — seven gates for founders",
+    description:
+      "Thirty-five questions you can't paste your way through. A thinking instrument for founders.",
+    images: ["/opengraph-image"],
+  },
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
