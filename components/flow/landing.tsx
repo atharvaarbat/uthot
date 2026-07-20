@@ -49,7 +49,12 @@ export default function Landing() {
                     <img src={'/logo.svg'} className='h-8 w-10' />
                     <img src={'/uthot.svg'} className='h-6 ' />
                 </div>
+                <div className="flex items-center gap-4">
+                <Link href="/story" className='underline text-sm text-muted-foreground'>
+                 the story
+                </Link>
                 <ThemeToggle />
+                </div>
             </header>
 
             <main className="flex flex-1 flex-col items-center justify-center px-6 text-center">
