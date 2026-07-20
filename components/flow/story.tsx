@@ -128,6 +128,13 @@ export default function Story() {
                         that burned bright and faded before you understood why, these gates
                         are for you.
                     </p>
+                    <p className="story-fade opacity-0">
+                        - Atharva Arbat <br/>
+                        <a href="mailto:atharva.arbat@hdtl.in" 
+                        className="underline text-sm">
+                        atharva.arbat@hdtl.in
+                        </a>
+                    </p>
                 </div>
 
                 <div className="story-fade mt-14 flex items-center gap-4 opacity-0">
